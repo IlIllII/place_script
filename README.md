@@ -4,15 +4,15 @@ This script will automate the placement of tiles on r/place every 5 minutes acco
 
 ## Instructions
 
-### Clone the repo
+### 1. Clone the repo
 
 To begin clone the repository to your machine.
 
-### Include an image
+### 2. Include an image
 
 Next, you must include in the script's directory a template image with the EXACT dimensions you want and RBG values that are used in r/place. RGB values can be found at the bottom of this readme.
 
-### Get an API key
+### 3. Get an API key
 
 After you've provide an image, you must authorize a new app if you don't have an API key already.
 
@@ -27,7 +27,7 @@ Then, fill out the form:
 
 Now you should have a client id and a secret key. The client key is the string under the name of the app, while the secret can be found in the `secret` field.
 
-### Populate `config.json`
+### 4. Populate `config.json`
 
 With this information in hand, you must now populate the fields in `config.json` in the script directory. These fields include:
 
@@ -42,7 +42,7 @@ With this information in hand, you must now populate the fields in `config.json`
 
 Several of these fields contain sensitive information, so if you not using your own machine to run the script you should put these values in environment variables instead. This will require changing the script slightly. The reason the script needs the username and password is so it can place tiles on your behalf.
 
-### Run the script
+### 5. Run the script
 
 Finally you are ready to run the script. To do this, run the following command:
 
@@ -60,9 +60,13 @@ Now you should be automatically placing tiles on r/place!
 
 ## Notes
 
+### Coordinate sytem
+
 r/place uses a coordinate system that is familiar to anyone who has worked with computer graphics before but not intuitive to everyone else. Basically, the y axis is flipped, so the top left corner of the canvas is at (0,0) and the bottom right corner is at (width, height), meaning larger y coordinates are closer to the bottom of the canvas than smaller ones.
 
 Since I have not adjusted for this in the script, this means that your image will be drawn upside down. To have it displayed right-side up, you must flip the y axis of your image before you start running the script. This should be easy to accomplish in any image editor. Importantly, you must reflect the image and not simply rotate it 180 degrees if your image is not symmetrical about the y axis.
+
+Additionally, r/place is broken up into several canvases. The x and y coordinates you provide the script are relative to the canvas being drawn to, meaning if you want to place your drawing on the second canvas (the top right quadrant), you will use local coordinates instead of global coordinates. So, coordinate x = 1 is actually in the middle of r/place, but that the start of the second canvas.
 
 ### RGB values
 
