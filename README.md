@@ -6,7 +6,7 @@ This script will automate the placement of tiles on r/place every 5 minutes acco
 
 ### 1. Clone the repo
 
-To begin clone the repository to your machine.
+To begin, clone the repository to your machine.
 
 ### 2. Include an image
 
